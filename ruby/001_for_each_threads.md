@@ -120,3 +120,5 @@ So why does the *for* with the sleep works ? That part demonstrates how threads 
 In the first example the for loop will create the sub threads by passing reference of the *queue* variable and then the main thread will continue until it reaches the *join* call and then run the sub threads. But by then, obviously the *queue* variable has changed to the last value of the loop.
 
 The *sleep* call alters that process by letting the scheduler handle the sub threads before the queue value change with another go through the for loop.
+
+The *each* happens in a similar way as the base *for* example : each thread is handled _after_ the loop but since each does not reuse the scoped variable between runs each thread is created with content that was properly copied when instanciated.
