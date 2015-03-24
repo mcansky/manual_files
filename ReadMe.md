@@ -13,3 +13,6 @@ This repo contains a series of posts to pass down some valuable information abou
 - CRONTAB basics (todo) : crontab basics (listing, editing)
 - GIT basics (todo) : init, commit, branching, review
 
+### Ruby
+
+- For and Each : little example of the difference between for and each [001 for and each](ruby/001_for_each_threads.md)
