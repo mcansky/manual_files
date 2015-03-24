@@ -138,4 +138,4 @@ end
 pool.each { |t| t.join }
 ```
 
-In that case the variable is copied at instanciation time of the Thread object, not at run time for the block.
+In that case the variable is copied at instanciation time of the Thread object, not at run time for the block. Since the data is copied before the scope content changes everything is fine at run time.
