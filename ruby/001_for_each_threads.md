@@ -122,3 +122,20 @@ In the first example the for loop will create the sub threads by passing referen
 The *sleep* call alters that process by letting the scheduler handle the sub threads before the queue value change with another go through the for loop.
 
 The *each* happens in a similar way as the base *for* example : each thread is handled _after_ the loop but since each does not reuse the scoped variable between runs each thread is created with content that was properly copied when instanciated.
+
+## Bonus round
+
+Another way to avoid the problem is to pass the *queue* value to the *Thread.new* call and then use it through the block :
+
+```
+queues = %w(one two)
+pool = []
+
+for queue in queues do
+  pool << Thread.new(queue) { |q| puts q }
+end
+
+pool.each { |t| t.join }
+```
+
+In that case the variable is copied at instanciation time of the Thread object, not at run time for the block.
